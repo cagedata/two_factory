@@ -5,10 +5,10 @@ defmodule TwoFactorApp do
     import Supervisor.Spec, warn: false
 
     # Define workers and child supervisors to be supervised
+    port = Application.get_env(:two_factor_app, :port)
+    |> String.to_integer
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, TwoFactorApp.Router, [], [
-        port: Application.get_env(:two_factor_app, :port)
-      ])
+      Plug.Adapters.Cowboy.child_spec(:http, TwoFactorApp.Router, [], [port: port])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
