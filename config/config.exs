@@ -30,5 +30,5 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :two_factor_app,
-  port: String.to_integer(System.get_env("PORT")),
+  port: System.get_env("PORT"),
   webhook_url: System.get_env("SLACK_WEBHOOK_URL")
