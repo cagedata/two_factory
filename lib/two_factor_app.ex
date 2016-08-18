@@ -6,7 +6,9 @@ defmodule TwoFactorApp do
 
     # Define workers and child supervisors to be supervised
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, TwoFactorApp.Router, [], [host: "0.0.0.0", port: Application.get_env(:two_factor_app, :port)])
+      Plug.Adapters.Cowboy.child_spec(:http, TwoFactorApp.Router, [], [
+        port: Application.get_env(:two_factor_app, :port)
+      ])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
