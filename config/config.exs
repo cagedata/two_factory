@@ -29,6 +29,14 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
+# Changing the listening port:
+# The listening port defaults to 4000. It can be changed by setting:
+#
+#     config :two_factory_app, port: 5000
+#
+# Or it canbe set to use a system variable with:
+#
+#     config :two_factory_app, port: {:system, "PORT"}
+
 config :two_factor_app,
-  port: System.get_env("PORT"),
-  webhook_url: System.get_env("SLACK_WEBHOOK_URL")
+  webhook_url: {:system, "SLACK_WEBHOOK_URL"}

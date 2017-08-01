@@ -3,8 +3,8 @@ defmodule TwoFactorApp.Mixfile do
 
   def project do
     [app: :two_factor_app,
-     version: "0.1.0",
-     elixir: "~> 1.2",
+     version: "0.1.1",
+     elixir: "~> 1.5",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -19,9 +19,9 @@ defmodule TwoFactorApp.Mixfile do
   end
 
   defp deps do
-    [{:plug, "~> 1.2.0"},
-     {:cowboy, "~> 1.0.4"},
-     {:httpotion, "~> 3.0.0"},
-     {:poison, "~> 2.2.0"}]
+    [{:plug, "~> 1.0"},
+     {:cowboy, "~> 1.0.0"},
+     {:httpotion, "~> 3.0"},
+     {:poison, "~> 3.1"}]
   end
 end

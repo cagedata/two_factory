@@ -5,7 +5,7 @@ defmodule TwoFactorApp.Slack do
     IO.puts "Posting #{message}"
 
     response = HTTPotion.post(
-      Application.get_env(:two_factor_app, :webhook_url),
+      webhook_url(),
       [body: message, headers: ["Content-Type": "application/json"]]
     )
     IO.puts "Received (#{response.status_code}): #{response.body}"
@@ -22,4 +22,8 @@ defmodule TwoFactorApp.Slack do
       ]
     }
   end
+
+  defp webhook_url, do: webhook_url(Application.get_env(:two_factor_app, :webhook_url))
+  defp webhook_url({:system, var}), do: var |> System.get_env(key)
+  defp webhook_url(u), do: u
 end
