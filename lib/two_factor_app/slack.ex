@@ -24,6 +24,6 @@ defmodule TwoFactorApp.Slack do
   end
 
   defp webhook_url, do: webhook_url(Application.get_env(:two_factor_app, :webhook_url))
-  defp webhook_url({:system, var}), do: var |> System.get_env(key)
+  defp webhook_url({:system, var}), do: var |> System.get_env
   defp webhook_url(u), do: u
 end
